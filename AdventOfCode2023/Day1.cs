@@ -9,7 +9,7 @@ public class Day1 : IDay
 {
     public object Exercise1(string input)
     {
-        var lines = input.SplitByLineBreak().Where(x => !string.IsNullOrWhiteSpace(x));
+        var lines = input.SplitByLineBreak(StringSplitOptions.RemoveEmptyEntries);
         var nums = lines.Select(x => x.ToCharArray().Where(char.IsDigit));
         return nums.Sum(x => int.Parse(new string(new[] { x.First(), x.Last() })));
     }
@@ -18,8 +18,7 @@ public class Day1 : IDay
     {
 
         IEnumerable<string> lines = input
-            .SplitByLineBreak()
-            .Where(x => !string.IsNullOrWhiteSpace(x))
+            .SplitByLineBreak(StringSplitOptions.RemoveEmptyEntries)
             .Select(x => x.ReplaceFirstOf(_numbers).ReplaceLastOf(_numbers));
         var nums = lines.Select(x => x.ToCharArray().Where(char.IsDigit));
         return nums.Sum(x => int.Parse(new string(new[] { x.First(), x.Last() })));

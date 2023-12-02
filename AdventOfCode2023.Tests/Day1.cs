@@ -1,6 +1,5 @@
-﻿using Aoc2023 = AdventOfCode2023;
+﻿namespace AdventOfCode2023.Tests;
 
-namespace AdventOfCode2023.Tests;
 public class Day1 : TestBase<Aoc2023.Day1>
 {
     public override string Exercise1TestInput => """
